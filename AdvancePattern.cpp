@@ -64,6 +64,56 @@ void q5(int row) {
     cout << endl;
   }
 }
+
+void q6(int row) {
+  int r = row * 2;
+  int widthOfRow;
+
+  for (int i = 1; i <= r; i++) {
+    if (i <= row) {
+      widthOfRow = row + i;
+    } else {
+      widthOfRow = (r + 1) - (i - row);
+    }
+
+    for (int j = 1; j <= widthOfRow; j++) {
+      if (i <= row) {
+        if (j <= row - (i - 1)) {
+          cout << "  ";
+        } else {
+          cout << " *";
+        }
+      } else {
+
+        if (j <= (i - row)) {
+          cout << "  ";
+        } else {
+          cout << " *";
+        }
+
+      }
+
+    }
+    cout << endl;
+  }
+}
+
+void q7(int row) {
+  cout << "You actually entered column lenght\n";
+  for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= row; j++) {
+      int m = i + j;
+      if (m % 4 == 0) {
+        cout << " * ";
+      } else if (i % 2 == 0 && j % 4 == 0) {
+        cout << " * ";
+      } else {
+        cout << "   ";
+      }
+    }
+    cout << endl;
+  }
+}
 int main() {
 
   int row;
@@ -79,6 +129,10 @@ int main() {
   q4(row);
   cout << "---------------------" << endl;
   q5(row);
+  cout << "---------------------" << endl;
+  q6(row);
+  cout << "---------------------" << endl;
+  q7(row);
   cout << "---------------------" << endl;
   return 0;
 }
@@ -113,3 +167,19 @@ int main() {
 //      3 2 1 2 3 
 //    4 3 2 1 2 3 4
 //  5 4 3 2 1 2 3 4 5
+
+//                  Q6
+  //          *
+  //        * * *
+  //      * * * * *
+  //    * * * * * * *
+  //  * * * * * * * * *
+  //  * * * * * * * * *
+  //    * * * * * * *
+  //      * * * * *
+  //        * * *
+  //          *
+//                Q7
+//        *           *       
+//     *     *     *     *    
+//  *           *           * 
