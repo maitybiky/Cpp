@@ -1,13 +1,8 @@
 #include<iostream>
+#include "facto.h"
 using namespace std;
 
-int facto(int num){
-    int result=1;
-    for(int i=num;i>1;i--){
-       result*=i;
-    }
-    return result;
-}
+
 int main(){
      int n,c;
     cout<<"Enter n"<<endl;
