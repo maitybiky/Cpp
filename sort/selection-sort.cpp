@@ -1,7 +1,5 @@
 #include<iostream>
-
 #include<conio.h>
-
 #include"superscript.h"
 
 using namespace std;
