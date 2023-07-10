@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-
+// all number will be appeared in pair execpt 1 number . find that number
 int main() {
   cout << "Enter length of array;" << endl;
   int n;
