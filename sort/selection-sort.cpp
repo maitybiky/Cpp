@@ -4,13 +4,12 @@
 
 using namespace std;
 
-int main() {
-  int n, i;
+int * getArr(int n) {
+  int i;
 
-  cout << "Enter length how many number to work with;" << endl;
+  //filling array
+  int * arr = new int[n];
 
-  cin >> n;
-  int arr[n];
   cout << "ok, now enter all " << n << " number one by one" << endl;
 
   for (int i = 0; i < n; i++) {
@@ -31,6 +30,20 @@ int main() {
     if (i < n - 1) cout << " , ";
   }
   cout << "]" << endl;
+
+  return arr;
+}
+
+
+int main() {
+  int i;
+ int n;
+  cout << "Enter length how many number to work with;" << endl;
+  cin >> n;
+  int * arr = getArr(n);
+
+// sorting start
+
   for (i = 0; i < n - 1; i++) {
     for (int j = i + 1; j < n; j++) {
       if (arr[j] < arr[i]) {

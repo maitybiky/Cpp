@@ -1,17 +1,17 @@
 #include <iostream>
+
 #include <conio.h>
+
 #include "superscript.h"
+
 using namespace std;
 
-int main() {
-
-  int n, i;
+int * getArr(int n) {
+  int i;
 
   //filling array
-  cout << "Enter length how many number to work with;" << endl;
+  int * arr = new int[n];
 
-  cin >> n;
-  int arr[n];
   cout << "ok, now enter all " << n << " number one by one" << endl;
 
   for (int i = 0; i < n; i++) {
@@ -32,6 +32,19 @@ int main() {
     if (i < n - 1) cout << " , ";
   }
   cout << "]" << endl;
+
+  return arr;
+}
+
+int main() {
+  int n;
+  cout << "Enter length how many number to work with;" << endl;
+  cin >> n;
+  int * arr = getArr(n);
+
+  int i;
+
+
 
   //Sorting start
   // 1,4,9,2,3
