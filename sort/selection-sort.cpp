@@ -46,10 +46,14 @@ int main() {
 
   for (i = 0; i < n - 1; i++) {
     for (int j = i + 1; j < n; j++) {
+      int min_ind=i;
       if (arr[j] < arr[i]) {
-        int temp = arr[j];
-        arr[j] = arr[i];
-        arr[i] = temp;
+        min_ind=j;
+      }
+      if(min_ind!=i){
+        int temp=arr[i];
+        arr[i]=arr[min_ind];
+        arr[min_ind]=temp;
       }
     }
   }
