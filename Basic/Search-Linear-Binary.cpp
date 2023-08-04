@@ -18,7 +18,7 @@ void Linear(){
 
 
 
-
+//only sorted array
 int binarySearch(int arr[],int lnt,int target){
     
 int start=0;
