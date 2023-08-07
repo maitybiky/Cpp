@@ -10,15 +10,16 @@ void printPrime(int range) {
   for (int i = 2;
     (i * i) <= range; i++) {
 
-    if (integers[i] == 0) {
-      for (int j = i * i; j < range; j += i) {
+    for (int j = i * i; j <= range; j += i) {
+      
+      if (integers[j] == 0) {
         integers[j] = 1;
       }
     }
 
   }
 
-  for (int i = 2; i < range; i++) {
+  for (int i = 2; i <= range; i++) {
     if (integers[i] == 0) {
       cout << " " << i << " ";
     }
@@ -27,8 +28,9 @@ void printPrime(int range) {
 
 int main() {
   cout << "range?" << endl;
+  int n;
   cin >> n;
   printPrime(n);
-  cout<<endl;
+  cout << endl;
   return 0;
 }
