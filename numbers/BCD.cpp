@@ -17,7 +17,6 @@ int bcd(int fst, int sec) {
   return fst;
 }
 
-
 int main() {
   int a, b;
   cin >> a;
