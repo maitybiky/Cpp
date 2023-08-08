@@ -13,7 +13,6 @@ float xpn(float x, float n) {
 }
 
 int main() {
-
   float x, n;
   cin >> x;
   cin >> n;
