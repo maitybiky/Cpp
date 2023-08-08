@@ -18,3 +18,4 @@ int main() {
   cout << xpn(x, n);
   return 0;
 }
+
