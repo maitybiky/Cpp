@@ -19,6 +19,7 @@ void inc(int n){
 int main(){
     int n;
     cin>>n;
+    
     dec(n);
     cout<<endl;
     inc(n);
