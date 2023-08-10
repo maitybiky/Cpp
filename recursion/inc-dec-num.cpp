@@ -23,3 +23,6 @@ int main(){
     inc(n);
     return 0;
 }
+
+
+

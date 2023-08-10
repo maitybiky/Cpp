@@ -1,1 +1,5 @@
-{}
+{
+  "dependencies": {
+    "git-fast": "^1.2.2"
+  }
+}
