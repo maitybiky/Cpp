@@ -15,6 +15,7 @@ void inc(int n){
     cout<<n<<" ";
 }
 
+
 int main(){
     int n;
     cin>>n;
