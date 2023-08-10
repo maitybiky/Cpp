@@ -17,6 +17,7 @@ void inc(int n){
 }
 
 
+
 int main(){
     int n;
     cin>>n;
