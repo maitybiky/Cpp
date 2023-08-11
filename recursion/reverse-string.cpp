@@ -10,6 +10,7 @@ string rev(string& str,int ind=0){
 }
 
 int main(){
+    
     string s="hospital";
     cout<<rev(s);
     return 0;
