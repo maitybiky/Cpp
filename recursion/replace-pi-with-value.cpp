@@ -8,19 +8,19 @@ string replacePI(char str[]) {
   string PIv = "3.14";
   if (str[0] == '\0') return "";
   if (str[0] == 'p' && str[1] == 'i') {
-    cout << PIv;
-    return replacePI(str + 2);
+  
+    return PIv+replacePI(str + 2);
   } else {
-    cout << str[0];
-    return replacePI(str + 1);
+   
+    return str[0]+replacePI(str + 1);
   }
 
 }
 
 int main() {
   char PIstring[] = "pippxxppixipi";
-
-  replacePI(PIstring);
+cout<<replacePI(PIstring)<<endl;
+  
   return 0;
 
 }
