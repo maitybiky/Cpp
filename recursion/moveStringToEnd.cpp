@@ -13,6 +13,7 @@ if(str[ind]=='x') {
 return moveToEnd(str,n+1);
 }
 
+
 int main(){
     string p="axxbxxxffdfx";
    
