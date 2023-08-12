@@ -11,7 +11,6 @@ if(str.length()==n) return str;
 
 int main(){
 string p="ggurrrriiiizsss";
-
 cout<<remDuplicate(p)<<endl;
 
 return 0;
