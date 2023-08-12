@@ -9,8 +9,6 @@ int fibbo(int prev,int curr){
      fibbo(curr,prev+curr);
      return 0;
 }
-
-
 //* Find nth fibbo
 //! amature
 int findfibbo(int prev,int curr,int n){
@@ -24,8 +22,6 @@ int fibboPlus(int n){
     if (n==0|n==1) return n;
     return fibboPlus(n-1) + fibboPlus(n-2);
 }
-
-
 int main(){
 cin>>range;
 fibbo(0,1);
