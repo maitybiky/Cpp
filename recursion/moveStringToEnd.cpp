@@ -10,9 +10,7 @@ if(str[ind]=='x') {
     string pushedX=rem+"x";
     return  moveToEnd(pushedX,n+1);
 }
-
 return moveToEnd(str,n+1);
-
 }
 
 int main(){
