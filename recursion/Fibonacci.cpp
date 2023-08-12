@@ -9,7 +9,7 @@ int fibbo(int prev,int curr){
      fibbo(curr,prev+curr);
      return 0;
 }
-  
+
 //* Find nth fibbo
 //! amature
 int findfibbo(int prev,int curr,int n){
