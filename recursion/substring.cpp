@@ -3,8 +3,8 @@
 using namespace std;
 
 void subset (string str,string rnode=""){
-    if(str.length()==0) {
-cout<<rnode<<endl;
+ if(str.length()==0) {
+ cout<<rnode<<endl;
 return ;
     } 
     
