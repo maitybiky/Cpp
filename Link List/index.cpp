@@ -8,6 +8,9 @@ class Node {
     this -> data = data;
     this -> nextNode = NULL;
   }
+  ~Node(){
+    cout<<"\033[31m"<<data<<" deleted"<<"\033[0m"<<endl;
+  }
 };
 
 void insertAtStart(Node * & Head, int data) {
@@ -37,6 +40,13 @@ void insertAt(Node * & Head, int data, int position) {
 }
 
 void deleteNode(Node* &Head, int position){
+
+    if(position==1){
+        Node* temp=Head;
+        Head=Head->nextNode;
+        delete temp;
+        return;
+    }
     Node* prevNode = Head;
     int index = 1;
     while (index < position - 1) {
@@ -45,6 +55,7 @@ void deleteNode(Node* &Head, int position){
   }
   Node* willDel=prevNode->nextNode;
   prevNode->nextNode=willDel->nextNode;
+  delete willDel;
 }
 
 void displayList(Node * & Head) {
@@ -64,14 +75,13 @@ int main() {
   Node * node1 = new Node(7);
   Node * Head = node1;
   Node * Tail = node1;
-  insertAtLast
-    (Tail, 19);
+  insertAtLast(Tail, 19);
   displayList(Head);
   insertAtStart(Head, 56);
   displayList(Head);
   insertAt(Head, 34, 3);
   displayList(Head);
-   deleteNode(Head, 3);
+  deleteNode(Head, 3);
   displayList(Head);
 
   return 0;
