@@ -36,6 +36,17 @@ void insertAt(Node * & Head, int data, int position) {
 
 }
 
+void deleteNode(Node* &Head, int position){
+    Node* prevNode = Head;
+    int index = 1;
+    while (index < position - 1) {
+    prevNode = prevNode -> nextNode;
+    index++;
+  }
+  Node* willDel=prevNode->nextNode;
+  prevNode->nextNode=willDel->nextNode;
+}
+
 void displayList(Node * & Head) {
   Node * startNode = Head;
   cout << "------" << endl;
@@ -47,6 +58,8 @@ void displayList(Node * & Head) {
 
 }
 
+
+
 int main() {
   Node * node1 = new Node(7);
   Node * Head = node1;
@@ -57,6 +70,8 @@ int main() {
   insertAtStart(Head, 56);
   displayList(Head);
   insertAt(Head, 34, 3);
+  displayList(Head);
+   deleteNode(Head, 3);
   displayList(Head);
 
   return 0;
