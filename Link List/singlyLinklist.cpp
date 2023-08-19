@@ -1,103 +1,130 @@
 #include <iostream>
 
 using namespace std;
-class Node {
-  public: int data;
-  Node * nextNode;
-  Node(int data) {
-    this -> data = data;
-    this -> nextNode = NULL;
+class Node
+{
+public:
+  int data;
+  Node *nextNode;
+  Node(int data)
+  {
+    this->data = data;
+    this->nextNode = NULL;
   }
-  ~Node(){
-    cout<<"\033[31m"<<data<<" deleted"<<"\033[0m"<<endl;
+  ~Node()
+  {
+    cout << "\033[31m" << data << " deleted"
+         << "\033[0m" << endl;
   }
 };
 
-void insertAtStart(Node * & Head, int data) {
-  Node * latestNode = new Node(data);
-  latestNode -> nextNode = Head;
-  Head = latestNode;
-}
-
-void insertAtLast(Node * & Tail, int data) {
-  Node * latestNode = new Node(data);
-  Tail -> nextNode = latestNode;
-  Tail = latestNode;
-}
-
-void insertAt(Node * & Head, int data, int position) {
-  Node * temp = Head;
-  int index = 1;
-  while (index < position - 1) {
-    temp = temp -> nextNode;
-    index++;
+class LinkList
+{
+public:
+  int data;
+  Node *Head;
+  Node *Tail;
+  LinkList()
+  {
+    this->Head = nullptr;
+    this->Tail = nullptr;
   }
 
-  Node * newNode = new Node(data);
-  newNode -> nextNode = temp -> nextNode;
-  temp -> nextNode = newNode;
+  void insertAtStart(int data)
+  {
+    Node *latestNode = new Node(data);
+    latestNode->nextNode = this->Head;
+    this->Head = latestNode;
+    return;
+  }
 
-}
+  void insertAt(int data, int position)
+  {
+    if (position < 0)
+      return;
+    if (position == 1)
+      insertAtStart(data);
 
-void deleteNode(Node* &Head,Node* &Tail, int position){
-
-    if(position==1){
-        Node* temp=Head;
-        Head=Head->nextNode;
-        temp->nextNode=NULL;
-        delete temp;
-        return;
-    }
-    Node* curentNode = Head;
-    Node* prevNode = Head;
+    Node *temp = this->Head;
     int index = 1;
-    while (index < position ) {
-      prevNode=curentNode;
-        curentNode = curentNode -> nextNode;
-      if(prevNode -> nextNode==NULL) {
-        cout<<"No Node present at position at "<<position<<endl;
+    while (index < position - 1)
+    {
+      if (temp->nextNode == NULL)
+        return;
+      temp = temp->nextNode;
+      index++;
+    }
+
+    Node *newNode = new Node(data);
+    newNode->nextNode = temp->nextNode;
+    temp->nextNode = newNode;
+  }
+
+  void deleteNode(int position)
+  {
+    if (position < 0)
+      return;
+
+    if (position == 1)
+    {
+      Node *temp = this->Head;
+      this->Head = this->Head->nextNode;
+      temp->nextNode = NULL;
+      delete temp;
+      return;
+    }
+    Node *curentNode = this->Head;
+    Node *prevNode = this->Head;
+    int index = 1;
+    while (index < position)
+    {
+      prevNode = curentNode;
+      curentNode = curentNode->nextNode;
+      if (prevNode->nextNode == NULL)
+      {
+        cout << "No Node present at position at " << position << endl;
         return;
       }
 
-    index++;
+      index++;
+    }
+
+    if (curentNode->nextNode == NULL)
+    {
+      prevNode->nextNode = NULL;
+      this->Tail = prevNode;
+    }
+    else
+    {
+      prevNode->nextNode = curentNode->nextNode;
+    }
+
+    delete curentNode;
   }
 
-   if(curentNode->nextNode==NULL){
-       prevNode->nextNode=NULL;
-       Tail=prevNode;
-  }else{
-    prevNode->nextNode=curentNode->nextNode;
+  void displayList()
+  {
+    Node *startNode = this->Head;
+    cout << "------" << endl;
+    while (startNode != NULL)
+    {
+      cout << startNode->data << endl;
+      startNode = startNode->nextNode;
+    }
+    cout << "------" << endl;
   }
-  
- delete curentNode;
-  
-}
+};
 
-void displayList(Node * & Head) {
-  Node * startNode = Head;
-  cout << "------" << endl;
-  while (startNode != NULL) {
-    cout << startNode -> data << endl;
-    startNode = startNode -> nextNode;
-  }
-  cout << "------" << endl;
-
-}
-
-
-
-int main() {
-  Node *node1 = new Node(7);
-  Node *Head = node1;
-  Node *Tail = node1;
-  insertAtLast(Tail, 19);
-  displayList(Head);
-  insertAtStart(Head, 56);
-  displayList(Head);
-  insertAt(Head, 34, 3);
-  displayList(Head);
-  deleteNode(Head,Tail, 3);
-  displayList(Head);
-  cout<<Tail->data<<"tail"<<Head->data<<"head"<<endl;
+int main()
+{
+  LinkList node1;
+  node1.insertAtStart(4);
+  node1.insertAtStart(3);
+  node1.insertAtStart(8);
+  node1.insertAt(11, 4);
+  node1.insertAt(17, 6);
+  node1.displayList();
+  node1.deleteNode(-11);
+  node1.displayList();
   return 0;
 }
