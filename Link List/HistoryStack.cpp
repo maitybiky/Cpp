@@ -87,8 +87,9 @@ class LinkList {
   }
 
 };
-int main() {
 
+int main() {
+  
   LinkList stack1;
   stack1.insert("a");
   stack1.insert("b");
@@ -101,7 +102,7 @@ int main() {
   stack1.redo();
   cout<<"now "<<stack1.now()<<endl;
   stack1.history();
-  //   cout << stack1.Current -> data;
+
 
   return 0;
 
