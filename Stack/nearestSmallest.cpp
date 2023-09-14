@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Node
@@ -54,12 +55,29 @@ public:
 int main()
 {
     Stack s1;
-    s1.push(5);
-    s1.push(6);
-    s1.push(7);
-    s1.pop();
-    s1.pop();
+    int arr[] = {6, 11, 3, 7, 4, 13, 5};
+    vector<int> ans;
+    for (int i = 0; i < 7; i++)
+    {
+        while (!s1.isEmpty() && s1.peek() >= arr[i])
+        {
+            s1.pop();
+        }
 
-    cout << s1.peek() << endl;
+        if (s1.isEmpty())
+        {
+            ans.push_back(-1);
+        }
+        else
+        {
+            ans.push_back(s1.peek());
+        }
+        s1.push(arr[i]);
+    }
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << " " << endl;
+    }
+
     return 0;
 }
