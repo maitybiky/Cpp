@@ -55,7 +55,7 @@ public:
 int main()
 {
     Stack s1;
-    int arr[] = {6, 11, 3, 7, 4, 13, 5};
+    int arr[] = {6, 11, 3, 7, 14, 13, 5};
     vector<int> ans;
     for (int i = 0; i < 7; i++)
     {
