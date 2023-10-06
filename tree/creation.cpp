@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <queue>
 using namespace std;
 
 class Node
@@ -27,6 +29,7 @@ Node *createTree()
     newNode->right = createTree();
     return newNode;
 }
+
 void printTreeInOreder(Node *root)
 {
     if (!root)
@@ -35,6 +38,7 @@ void printTreeInOreder(Node *root)
     cout << root->data << endl;
     printTreeInOreder(root->right);
 }
+
 void printTreePreOreder(Node *root)
 {
     if (!root)
@@ -43,6 +47,7 @@ void printTreePreOreder(Node *root)
     printTreeInOreder(root->left);
     printTreeInOreder(root->right);
 }
+
 void printTreePostOreder(Node *root)
 {
     if (!root)
@@ -51,14 +56,48 @@ void printTreePostOreder(Node *root)
     printTreeInOreder(root->right);
     cout << root->data << endl;
 }
+
+void printTreeLevel(Node *root)
+{
+    queue<Node *> q;
+    q.push(root);
+
+    q.push(nullptr);
+    while (!q.empty())
+    {
+        Node *curr = q.front();
+        q.pop();
+        if (curr == nullptr)
+        {
+            if (q.empty())
+                return;
+            else
+            {
+                q.push(nullptr);
+                cout << endl;
+                // continue;
+            }
+        }
+        else
+        {
+            cout << curr->data << " ";
+            if (curr->left != nullptr)
+                q.push(curr->left);
+
+            if (curr->right != nullptr)
+                q.push(curr->right);
+        }
+    }
+}
 void printTree(Node *root)
 {
     int type;
     cout << "In order triversal => Enter 1" << endl;
     cout << "Pre order triversal => Enter 2" << endl;
     cout << "Post order triversal => Enter 3" << endl;
+    cout << "Post order triversal => Enter 4" << endl;
     cin >> type;
-
+    system("clear");
     switch (type)
     {
     case 1:
@@ -72,6 +111,10 @@ void printTree(Node *root)
     case 3:
         cout << "The post-order triversal" << endl;
         printTreePostOreder(root);
+        break;
+    case 4:
+        cout << "The level-order triversal" << endl;
+        printTreeLevel(root);
         break;
 
     default:
