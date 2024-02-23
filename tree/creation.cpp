@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <queue>
 using namespace std;
 
@@ -71,12 +70,10 @@ void printTreeLevel(Node *root)
         {
             if (q.empty())
                 return;
-            else
-            {
-                q.push(nullptr);
-                cout << endl;
-                // continue;
-            }
+
+            q.push(nullptr);
+            cout << endl;
+            continue;
         }
         else
         {
@@ -89,6 +86,27 @@ void printTreeLevel(Node *root)
         }
     }
 }
+int height(Node *root)
+{
+    if (root == nullptr)
+        return 0;
+
+    return max(height(root->left), height(root->right)) + 1;
+}
+
+int Max(Node *root)
+{
+    if (root == nullptr)
+        return -1;
+
+    return max(root->data, Max(root->left), Max(root->right))
+}
+int size(Node *root)
+{
+    if (root == nullptr)
+        return 0;
+    return size(root->left) + size(root->right) + 1;
+}
 void printTree(Node *root)
 {
     int type;
@@ -98,6 +116,7 @@ void printTree(Node *root)
     cout << "Post order triversal => Enter 4" << endl;
     cin >> type;
     system("clear");
+
     switch (type)
     {
     case 1:
@@ -129,5 +148,9 @@ int main()
     cout << " The Tree" << endl;
 
     printTree(root);
+
+    cout << endl;
+    cout << "height " << height(root) << endl;
+    cout << "size " << size(root) << endl;
     return 0;
 }
